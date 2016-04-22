@@ -23,7 +23,11 @@ function onClick(info, tab, frontOrBack) {
   console.log("tab: " + JSON.stringify(tab));
   var obj = {};
   obj[frontOrBack] = info.selectionText;
-  chrome.storage.sync.set(obj);
+  chrome.storage.sync.get({"flashcardList": []}, function(list) {
+    var l = list["flashcardList"];
+    l.push(obj);
+    chrome.storage.sync.set({"flashcardList": l});
+  });
 }
 
 // Create one test item for each context type.
