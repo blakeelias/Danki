@@ -112,9 +112,22 @@ function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  getPageText('https://tools.ietf.org/rfc/rfc4501.txt', renderStatus, renderStatus);
+function drawRow(rowData) {
+	var row = $("<tr />")
+	$("#flashcardTable").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
+	row.append($("<td>" + rowData.front + "</td>"));
+	row.append($("<td>" + rowData.back + "</td>"));
+}
 
+document.addEventListener('DOMContentLoaded', function() {
+		console.log("in DOMContentLoaded");
+  chrome.storage.sync.get("flashcardList", function(flashcards) {
+		  console.log("getting from storage");
+    for (i in flashcards) {
+	    console.log(flashcards[i]);
+	    drawRow(flashcards[i]);
+    }
+  });
   /*getCurrentTabUrl(function(url) {
     // Put the image URL in Google search.
     renderStatus('Performing Google Image search for ' + url);
