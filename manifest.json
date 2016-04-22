@@ -12,6 +12,7 @@
   "permissions": [
     "activeTab",
     "contextMenus",
+    "storage",
     "https://ajax.googleapis.com/",
     "https://tools.ietf.org/"
   ],
