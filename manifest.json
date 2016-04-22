@@ -11,7 +11,14 @@
   },
   "permissions": [
     "activeTab",
+    "contextMenus",
     "https://ajax.googleapis.com/",
     "https://tools.ietf.org/"
-  ]
+  ],
+  "icons": {
+    "16": "icon.png"
+  },
+  "background": {
+    "scripts": ["context-menu.js"]
+  }
 }
