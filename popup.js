@@ -120,13 +120,16 @@ function drawRow(rowData) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-		console.log("in DOMContentLoaded");
+		//  alert("in DOMContentLoaded");
   chrome.storage.sync.get("flashcardList", function(flashcards) {
-		  console.log("getting from storage");
-    for (i in flashcards) {
-	    console.log(flashcards[i]);
-	    drawRow(flashcards[i]);
-    }
+		  document.getElementById("status").textContent = "test<br />";
+		  var l = flashcards.flashcardList;
+		 
+		  for (i in l) {
+			  document.getElementById("flashcardTable").innerHTML += "<tr><td>" + l[i].front + "</td><td>" + l[i].back + "</td></tr>";
+			  // drawRow(l[i]);
+			  //			  document.getElementById("status").textContent += l[i].front + "\t" + l[i].back + "\n";
+			  }
   });
   /*getCurrentTabUrl(function(url) {
     // Put the image URL in Google search.
