@@ -65,15 +65,15 @@ window.onload = function() {
     currentCardFront = flashcardList[i].front;
     currentCardBack = flashcardList[i].back;
     currentCardSide = "front";
-    document.getElementById('currentCard').innerHTML = currentCardFront;
+    document.getElementById('currentCard').textContent = currentCardFront;
   }
   //toggle back and front
   document.getElementById('flip').onclick = function(){
     if(currentCardSide == "front"){
-      document.getElementById('currentCard').textContents = currentCardBack;
+      document.getElementById('currentCard').textContent = currentCardBack;
       currentCardSide = "back";
     }else{
-      document.getElementById('currentCard').textContents = currentCardFront;
+      document.getElementById('currentCard').textContent = currentCardFront;
       currentCardSide = "front";
     }
   }
