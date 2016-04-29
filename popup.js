@@ -126,9 +126,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		  var l = flashcards.flashcardList;
 		 
 		  for (i in l) {
-			  document.getElementById("flashcardTable").innerHTML += "<tr><td>" + l[i].front + "</td><td>" + l[i].back + "</td></tr>";
-			  // drawRow(l[i]);
-			  //			  document.getElementById("status").textContent += l[i].front + "\t" + l[i].back + "\n";
+			  c = document.getElementById("flashcardTable").lastChild;
+			  c.innerHTML += "<tr><td>hello</td><td>hello</td></tr>";
+			  c.lastChild.childNodes[0].textContent = l[i].front;
+			  c.lastChild.childNodes[1].textContent = l[i].back;
 			  }
   });
   /*getCurrentTabUrl(function(url) {
