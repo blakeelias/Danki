@@ -123,6 +123,7 @@ function handleClick(e) {
       } else {
         breadcrumbs = [];
         createPopup(query, e.pageX, e.pageY, e.clientX, e.clientY, false);
+	console.log("you clicked for a definition");
       }
       e.preventDefault();
       getSelection().removeAllRanges();
